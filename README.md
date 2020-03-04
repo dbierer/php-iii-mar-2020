@@ -8,10 +8,16 @@
 * Find example re: binding of $this in anon funcs in PHP 7.4
 
 ## Updates
-* http://localhost:8888/#/2/32: IteratorAggregate Interface : 
+* http://localhost:8888/#/1/13: ??? :
+  * All references to _Zend Framework_ change to _Laminas_;
+  * _Zend Framework_ becomes _Laminas MVC_
+  * _Apigility_ becomes _Laminas API Tools_
+  * _Zend Expressive_ becomes _Mezzio_
+  * _Stratigility_ is included in _Laminas Enterprise Components_
+* http://localhost:8888/#/2/32: IteratorAggregate Interface :
 ```
 require __DIR__ . '/../../../vendor/autoload.php';
-use src\ModPhpAdvanced\PredefinedInterfaces\IteratorAggregate\IteratorAggregateCustom;	
+use src\ModPhpAdvanced\PredefinedInterfaces\IteratorAggregate\IteratorAggregateCustom;
 $obj = new IteratorAggregateCustom(['Mark', 'Watney', 'Martian']);
 
 // Iterate each returned ArrayIterator instance
@@ -29,19 +35,19 @@ foreach($obj->getIterator() as $key => $value) {
 * Generators
 ```
 namespace src\ModPhpAdvanced\GeneratorDelegation\SubGenYieldFromExp ;
- 
+
 class DimensionDelegator {
     protected $widths = [10, 30, 50];
     protected $lengths = [15, 25, 35];
- 
+
     protected function getWidths() {
         yield from $this->widths;
     }
- 
+
     protected function getLengths() {
         yield from $this->lengthsl
     }
- 
+
     public function getDimensions() {
         yield from $this->getWidths();
         yield from $this->getLengths();
@@ -51,4 +57,4 @@ class DimensionDelegator {
 * Anon Class
   * Example using anon class with FilterIterator
   * ???
-  
+
