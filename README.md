@@ -27,6 +27,27 @@ foreach($obj->getIterator() as $key => $value) {
 ```
 
 ## Class Discussion
+* RE: PHP 7.4 changes to Anon Functions and binding `$this`:
+```
+// this usage is deprecated in PHP 7.4
+// See: https://wiki.php.net/rfc/deprecations_php_7_4#unbinding_this_from_non-static_closures
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+class Test { protected $name = 'Testy Tester'; }
+class Fred { protected $name = 'Fred Flintstone'; }
+$anon = new class() extends Test {
+    public function getDump($obj = FALSE)
+    {
+        $func = function () { var_dump($this); };
+        // deprecated:
+        return ($obj !== FALSE) ? $func->bindTo($obj) : $func;
+    }
+};
+echo $anon->getDump()() . "\n";
+echo $anon->getDump(new Fred())() . "\n";
+echo $anon->getDump(NULL)() . "\n";
+```
 * PHP RoadMap: https://wiki.php.net/rfc
 * Discussion on problems with existing serialization: https://wiki.php.net/rfc/custom_object_serialization
 * PHP 7.4 Update: https://www.php.net/manual/en/migration74.new-features.php
