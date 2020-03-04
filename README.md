@@ -3,9 +3,20 @@
 * For Weds 4 March
   * Configure Apache JMeter
   * Configure Jenkins CI
-
+* For Fri 6 March
+  * Lab: Built-in Web Server
 ## TODO
 * Find example re: binding of $this in anon funcs in PHP 7.4
+
+## Resources
+* PHP 7.4: https://github.com/phpcl/phpcl_jumpstart_php_7_4/blob/master/ffi_c_function.php
+* OOP Examples: https://github.com/dbierer/classic_php_examples/tree/master/oop
+* Article on ArrayObject: https://continuous-learning.com/php-7-4-the-strange-case-of-arrayobject/
+* Article on DirectoryIterator: https://continuous-learning.com/grabbing-a-filtered-directory-tree-using-php-iteration/
+* Example of FilterIterator: https://github.com/dbierer/php-iii-jul-2018/blob/master/spl_stacked_iterators.php
+* More examples from another class: https://github.com/dbierer/php-iii-jul-2018
+* General PHP 7.0 examples: https://github.com/dbierer/php7_examples/tree/master/php_7_0
+* General PHP 7.1 examples: https://github.com/dbierer/php7_examples/tree/master/php_7_1
 
 ## Updates
 * http://localhost:8888/#/1/13: ??? :
@@ -25,8 +36,12 @@ foreach($obj->getIterator() as $key => $value) {
     echo " $key => $value " . PHP_EOL;
 }
 ```
+* http://localhost:8888/#/4/14: `STOUT` s/be `STDOUT`
 
 ## Class Discussion
+* Prototype for custom stream wrapper: https://www.php.net/manual/en/class.streamwrapper.php
+* How to create a PHAR file: https://github.com/phpcl/laminas_tools/blob/master/utils/create_phar.php
+* RE: PHP 7.4: https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters
 * RE: PHP 7.4 changes to Anon Functions and binding `$this`:
 ```
 // this usage is deprecated in PHP 7.4
