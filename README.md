@@ -18,6 +18,14 @@
 * General PHP 7.0 examples: https://github.com/dbierer/php7_examples/tree/master/php_7_0
 * General PHP 7.1 examples: https://github.com/dbierer/php7_examples/tree/master/php_7_1
 
+## Lab Notes
+* Have a look at the Lab Notes from the previous class if you experience problems
+  * https://github.com/dbierer/php-iii-may-2019
+* Lab: Jenkins Freestyle Prerequisites:
+  * When you add your user to a group, you **must logout** and the login again before the change is recognized!
+* Lab: Apache JMeter:
+  * Read up on what the HTTP test can do: https://jmeter.apache.org/usermanual/component_reference.html#HTTP_Request
+
 ## Updates
 * http://localhost:8888/#/1/13: ??? :
   * All references to _Zend Framework_ change to _Laminas_;
