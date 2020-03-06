@@ -5,8 +5,13 @@
   * Configure Jenkins CI
 * For Fri 6 March
   * Lab: Built-in Web Server
+* For Mon 9 March
+  * Lab: New Functions (creating a new extension)
+  * Lab: Install a PHP Extension
+  * Lab: Custom PHP installation (try 7.4.4 https://github.com/php/php-src/tree/PHP-7.4.4)
+  * Lab: Phing Labs (there are a couple of them!)
+
 ## TODO
-* Find example re: binding of $this in anon funcs in PHP 7.4
 
 ## Resources
 * PHP 7.4: https://github.com/phpcl/phpcl_jumpstart_php_7_4/blob/master/ffi_c_function.php
@@ -21,6 +26,9 @@
 ## Lab Notes
 * Have a look at the Lab Notes from the previous class if you experience problems
   * https://github.com/dbierer/php-iii-may-2019
+* For the PHP Compile Lab:
+  * https://www.php.net/manual/en/migration74.other-changes.php#migration74.other-changes.pkg-config
+  * Replace `--enable-libxml=/usr` with `--with-libxml`
 * Lab: Jenkins Freestyle Prerequisites:
   * When you add your user to a group, you **must logout** and the login again before the change is recognized!
 * Lab: Apache JMeter:
