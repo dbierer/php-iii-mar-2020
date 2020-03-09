@@ -22,8 +22,17 @@
 * More examples from another class: https://github.com/dbierer/php-iii-jul-2018
 * General PHP 7.0 examples: https://github.com/dbierer/php7_examples/tree/master/php_7_0
 * General PHP 7.1 examples: https://github.com/dbierer/php7_examples/tree/master/php_7_1
+* Docker File Examples:
+  * https://github.com/docker-library/mongo/blob/bba1349012df392cc4679c3e2eca2c15f9f89720/4.2/Dockerfile
+  * https://github.com/phpcl/phpcl_jumpstart_mongodb/blob/master/Dockerfile
 
 ## Lab Notes
+* Docker
+  * Excellent overview: https://docs.docker.com/get-started/
+* Docker Compose
+  * Quickstart tutorial on Docker Compose: https://docs.docker.com/compose/gettingstarted/
+  * Don't install the pre-compiled binary: probably out of date
+  * See: https://docs.docker.com/compose/install/#install-compose-on-linux-systems
 * Have a look at the Lab Notes from the previous class if you experience problems
   * https://github.com/dbierer/php-iii-may-2019
 * For the PHP Compile Lab:
