@@ -10,8 +10,16 @@
   * Lab: Install a PHP Extension
   * Lab: Custom PHP installation (try 7.4.4 https://github.com/php/php-src/tree/PHP-7.4.4)
   * Lab: Phing Labs (there are a couple of them!)
+For Wed 11 March
+  * Lab: Jenkins
+  * Lab: Apache JMeter
+  * Lab: Docker (all of them)
+  * Lab: Apigility / Laminas API Tools
+    * See: https://api-tools.getlaminas.org/
 
 ## TODO
+* Locate test plan for database load testing
+* Specs on our server
 
 ## Resources
 * PHP 7.4: https://github.com/phpcl/phpcl_jumpstart_php_7_4/blob/master/ffi_c_function.php
@@ -25,8 +33,13 @@
 * Docker File Examples:
   * https://github.com/docker-library/mongo/blob/bba1349012df392cc4679c3e2eca2c15f9f89720/4.2/Dockerfile
   * https://github.com/phpcl/phpcl_jumpstart_mongodb/blob/master/Dockerfile
-
+  * Linux for PHP
+  
 ## Lab Notes
+* ZF to Laminas Migration
+  * See: https://docs.laminas.dev/migration/
+* Apigility is now "Laminas API Tools"
+  * See: https://api-tools.getlaminas.org/
 * Docker
   * Excellent overview: https://docs.docker.com/get-started/
 * Docker Compose
