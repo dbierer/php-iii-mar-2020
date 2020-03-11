@@ -34,7 +34,13 @@ For Wed 11 March
   * https://github.com/docker-library/mongo/blob/bba1349012df392cc4679c3e2eca2c15f9f89720/4.2/Dockerfile
   * https://github.com/phpcl/phpcl_jumpstart_mongodb/blob/master/Dockerfile
   * Linux for PHP
-  
+* PubSub Example: https://github.com/dbierer/php7cookbook/blob/master/source/chapter11/chap_11_pub_sub_simple_example.php
+* Find another example of DoublyLinkedList
+  * See: https://github.com/dbierer/php7cookbook/blob/master/source/chapter10/chap_10_linked_double.php
+  * See: https://github.com/dbierer/php7cookbook/blob/master/source/chapter10/chap_10_linked_list_include.php
+* Find example of stacked iterators
+  * See: https://github.com/dbierer/php7cookbook/blob/master/source/chapter03/chap_03_developing_functions_stacked_iterators.php
+
 ## Lab Notes
 * ZF to Laminas Migration
   * See: https://docs.laminas.dev/migration/
@@ -75,8 +81,14 @@ foreach($obj->getIterator() as $key => $value) {
 }
 ```
 * http://localhost:8888/#/4/14: `STOUT` s/be `STDOUT`
+* http://localhost:8888/#/8/17: `Expressive` is now `Mezzio`; command to create skeleton has changed.  see: https://docs.mezzio.dev/mezzio/
+```
+composer create-project mezzio/mezzio-skeleton mezzio
+```
 
 ## Class Discussion
+* Example of "pure" Stratigility App: https://github.com/dbierer/strat_post
+  * Here is the live site running this code: https://api.unlikelysource.com/
 * Prototype for custom stream wrapper: https://www.php.net/manual/en/class.streamwrapper.php
 * How to create a PHAR file: https://github.com/phpcl/laminas_tools/blob/master/utils/create_phar.php
 * RE: PHP 7.4: https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters
