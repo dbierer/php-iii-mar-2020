@@ -16,6 +16,9 @@ For Wed 11 March
   * Lab: Docker (all of them)
   * Lab: Apigility / Laminas API Tools
     * See: https://api-tools.getlaminas.org/
+For Fri 13 March
+  * Lab: Stratigility
+  * Lab: Expressive / Mezzio
 
 ## TODO
 * Locate test plan for database load testing
@@ -144,3 +147,22 @@ class DimensionDelegator {
   * Example using anon class with FilterIterator
   * ???
 
+## Laminas Migration Errors
+```
+vagrant@php-training:~/php-iii-mar-2020/laminas_api_tools$ composer install
+Cannot create cache directory /home/vagrant/.composer/cache/repo/https---packagist.org/, or directory is not writable. Proceeding without cache
+Cannot create cache directory /home/vagrant/.composer/cache/files/, or directory is not writable. Proceeding without cache
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 95 installs, 0 updates, 0 removals
+  - Installing laminas/laminas-dependency-plugin (1.0.3): Downloading (100%)         
+PHP Fatal error:  Uncaught Error: Undefined class constant 'PRE_COMMAND_RUN' in /home/vagrant/php-iii-mar-2020/laminas_api_tools/vendor/laminas/laminas-dependency-plugin/src/DependencyRewriterPlugin.php:63
+
+vagrant@php-training:~/php-iii-mar-2020/apigility.migration.laminas$ php --version
+PHP 7.4.3 (cli) (built: Feb 23 2020 07:24:28) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Xdebug v2.9.0, Copyright (c) 2002-2019, by Derick Rethans
+    with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies
+
+```

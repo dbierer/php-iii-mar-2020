@@ -1,0 +1,77 @@
+{
+    "name": "laminas-api-tools/api-tools-skeleton",
+    "description": "Skeleton Application for Apigility",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "api",
+        "apigility",
+        "framework",
+        "zf",
+        "zendframework"
+    ],
+    "homepage": "http://apigility.org/",
+    "support": {
+        "issues": "https://github.com/laminas-api-tools/api-tools-skeleton/issues",
+        "source": "https://github.com/laminas-api-tools/api-tools-skeleton",
+        "rss": "https://github.com/laminas-api-tools/api-tools-skeleton/releases.atom",
+        "chat": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/apigility"
+    },
+    "config": {
+        "process-timeout": 5000
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.5.x-dev",
+            "dev-develop": "1.6.x-dev"
+        }
+    },
+    "require": {
+        "php": "^7.4",
+        "laminas/laminas-component-installer": "*",
+        "laminas-api-tools/api-tools": "*",
+        "laminas-api-tools/api-tools-documentation": "*",
+        "laminas/laminas-development-mode": "*",
+        "ramsey/uuid": "*",
+        "laminas/laminas-dependency-plugin": "^1.0"
+    },
+    "require-dev": {
+        "laminas/laminas-developer-tools": "*",
+        "laminas/laminas-test": "*",
+        "laminas-api-tools/api-tools-admin": "*",
+        "laminas-api-tools/api-tools-asset-manager": "*",
+        "zfcampus/zf-composer-autoloading": "*",
+        "zfcampus/zf-deploy": "*"
+    },
+    "suggest": {
+        "laminas-api-tools/api-tools-doctrine": "laminas-api-tools/api-tools-doctrine ^2.2 to create Doctrine-Connected REST services",
+        "laminas-api-tools/api-tools-http-cache": "laminas-api-tools/api-tools-http-cache ^1.4 to add HTTP caching to your API",
+        "zfr/zfr-cors": "zfr/zfr-cors ^1.5 to add CORS support to your API"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ApplicationTest\\": "module/Application/test/"
+        },
+        "files": [
+            "src/Apigility/constants.php"
+        ]
+    },
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "development-disable": "laminas-development-mode disable",
+        "development-enable": "laminas-development-mode enable",
+        "development-status": "laminas-development-mode status",
+        "post-create-project-cmd": [
+            "@development-enable"
+        ],
+        "serve": "php -S 0.0.0.0:8080 -t public/",
+        "test": "phpunit"
+    }
+}

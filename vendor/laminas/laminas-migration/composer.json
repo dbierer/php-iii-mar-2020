@@ -1,0 +1,44 @@
+{
+    "name": "laminas/laminas-migration",
+    "description": "Migrate a Zend Framework project or third-party library to target Laminas/Expressive/Apigility",
+    "license": "BSD-3-Clause",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "ext-json": "*",
+        "laminas/laminas-zendframework-bridge": "^1.0",
+        "symfony/console": "^2.7 || ^3.0 || ^4.0 || ^5.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "roave/security-advisories": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laminas\\Migration\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaminasTest\\Migration\\": "test/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev",
+            "dev-develop": "1.2.x-dev"
+        }
+    },
+    "bin": [
+        "bin/laminas-migration"
+    ],
+    "scripts": {
+        "check-compat": "for VERSION in 5.6 7.0 7.1 7.2 7.3 7.4;do ./vendor/bin/phpcs -- -p src --standard=PHPCompatibility --runtime-set testVersion $VERSION ; done",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit"
+    }
+}
