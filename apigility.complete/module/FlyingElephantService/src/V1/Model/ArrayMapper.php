@@ -11,7 +11,7 @@ use InvalidArgumentException;
 use Traversable;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Hydrator\ObjectPropertyHydrator;
-use Ramsey\Uuid\Uuid;
+use Zend\Validator\Uuid;
 use ZF\Configuration\ConfigResource;
 
 

@@ -2,4 +2,3 @@
 data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
-vendor/

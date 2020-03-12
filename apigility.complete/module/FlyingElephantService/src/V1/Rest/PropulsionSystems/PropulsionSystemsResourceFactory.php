@@ -18,6 +18,7 @@ class PropulsionSystemsResourceFactory
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        $mapper = $container->get('Mapper');
         return new PropulsionSystemsResource($container->get('Mapper'));
     }
 }

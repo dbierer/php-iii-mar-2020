@@ -1,8 +1,3 @@
-AuthType Basic
-AuthName "Restricted Files"
-AuthUserFile /home/vagrant/Zend/workspaces/DefaultWorkspace/apigility.complete/data/.htpasswd
-Require valid-user
-
 RewriteEngine On
 # The following rule allows authentication to work with fast-cgi
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

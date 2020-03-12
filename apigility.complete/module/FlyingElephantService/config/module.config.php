@@ -37,8 +37,8 @@ return [
             ],
         ],
         'aliases' => [
-//            'Mapper' => TableGatewayMapper::class,
-            'Mapper' => ArrayMapper::class,
+            'Mapper' => TableGatewayMapper::class,
+//            'Mapper' => ArrayMapper::class,
             'flying-elephant-db' => AdapterFactory::class,
         ],
         'factories' => [
@@ -83,7 +83,8 @@ return [
                 4 => 'POST',
             ],
             'collection_http_methods' => [
-                0 => 'GET'
+                0 => 'GET',
+                1 => 'POST',
             ],
             'collection_query_whitelist' => [],
             'page_size' => 25,
@@ -179,7 +180,7 @@ return [
             'FlyingElephantService\\V1\\Rest\\PropulsionSystems\\Controller' => [
                 'collection' => [
                     'GET' => true,
-                    'POST' => false,
+                    'POST' => true,
                     'PUT' => false,
                     'PATCH' => false,
                     'DELETE' => false,

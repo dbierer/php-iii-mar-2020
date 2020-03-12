@@ -6,7 +6,7 @@ namespace FlyingElephantService\V1\Model;
 
 use DomainException;
 use InvalidArgumentException;
-use Ramsey\Uuid\Uuid;
+use Rhumsaa\Uuid\Uuid;
 use Traversable;
 use Zend\Paginator\Adapter\DbTableGateway;
 use Zend\Stdlib\ArrayUtils;

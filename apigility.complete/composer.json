@@ -28,20 +28,20 @@
         }
     },
     "require": {
-      "php": "^7.4",
-      "zendframework/zend-component-installer": "*",
-      "zfcampus/zf-apigility": "*",
-      "zfcampus/zf-apigility-documentation": "*",
-      "zfcampus/zf-development-mode": "*",
-      "ramsey/uuid": "*"
+        "php": "^7.2",
+        "zendframework/zend-component-installer": "^1.1.1 || ^2.1.1",
+        "zfcampus/zf-apigility": "^1.4",
+        "zfcampus/zf-apigility-documentation": "^1.3",
+        "zfcampus/zf-development-mode": "^3.2",
+        "ramsey/uuid": "^2.9"
     },
     "require-dev": {
-      "zendframework/zend-developer-tools": "*",
-      "zendframework/zend-test": "*",
-      "zfcampus/zf-apigility-admin": "*",
-      "zfcampus/zf-asset-manager": "*",
-      "zfcampus/zf-composer-autoloading": "*",
-      "zfcampus/zf-deploy": "*"
+        "zendframework/zend-developer-tools": "^1.2.1",
+        "zendframework/zend-test": "^2.6.1 || ^3.2",
+        "zfcampus/zf-apigility-admin": "^1.6",
+        "zfcampus/zf-asset-manager": "^1.2",
+        "zfcampus/zf-composer-autoloading": "^1.1.1 || ^2.1",
+        "zfcampus/zf-deploy": "^1.3"
     },
     "suggest": {
         "zfcampus/zf-apigility-doctrine": "zfcampus/zf-apigility-doctrine ^2.2 to create Doctrine-Connected REST services",
