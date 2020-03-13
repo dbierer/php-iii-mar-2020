@@ -40,6 +40,7 @@ For Fri 13 March
   * Data Mapper
     * Doctrine ORM: https://www.doctrine-project.org/projects/orm.html
     * Atlas ORM: http://atlasphp.io/cassini/orm/relationships.html
+    * Propel ORM: http://propelorm.org/
   * Pub/Sub
     * https://github.com/dbierer/php7cookbook/blob/master/source/chapter11/chap_11_pub_sub_simple_example.php
   * Service Locator
@@ -196,5 +197,7 @@ Zend Engine v3.4.0, Copyright (c) Zend Technologies
     with Xdebug v2.9.0, Copyright (c) 2002-2019, by Derick Rethans
     with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies
 
+composer --version
+Composer version 1.6.2 2018-01-05 15:28:41
 ```
 * Solution: was running outdated version of Composer.  Updated Composer to version 1.10.x.  Migration works OK now.
