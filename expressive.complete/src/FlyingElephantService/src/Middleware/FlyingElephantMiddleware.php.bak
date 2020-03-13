@@ -1,0 +1,81 @@
+<?php
+namespace FlyingElephantService\Handler;
+
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Zend\Diactoros\Response\JsonResponse;
+use FlyingElephantService\V1\Rest\PropulsionSystems\PropulsionSystemsResource;
+
+use function time;
+
+class FlyingElephantMiddleware implements RequestHandlerInterface
+{
+    const ERROR_METHOD = 'ERROR: method not supported';
+	protected $resource;
+    protected $auth;
+	public function __construct(PropulsionSystemsResource $resource, $auth)
+	{
+		$this->resource = $resource;
+        $this->auth     = $auth;
+	}
+    public function handle(ServerRequestInterface $request) : ResponseInterface
+    {
+        try {
+            // Decode to a standard class object
+            $data = $request->getBody()->__toString() 
+                  ? json_decode($request->getBody()->__toString()) 
+                  : null;
+            $method = $request->getMethod();
+            $id = $request->getAttribute('id', 0);
+            $route = $request->getUri()->getPath();
+            $auth = $this->auth['authorization'][PropulsionSystemsResource::class];
+            $result = [];
+
+            if($id && $auth['entity'][$method]){
+                switch($method){
+                    case 'GET' :
+                        $result['data'] = $this->resource->fetch($id);
+                        break;
+                    case 'POST' :
+                        $result['data'] = $this->resource->create($id, $data);
+                        break;
+                    case 'PATCH' :
+                        $result['data'] = $this->resource->patch($id, $data);
+                        break;
+                    case 'PUT' :
+                        $result['data'] = $this->resource->patch($id, $data);
+                        break;
+                    case 'DELETE' :
+                        $result['data'] = $this->resource->delete($id);
+                        break;
+                    default :
+                        $result['error'] = $method . ' method is not allowed';
+                }
+            } elseif ($auth['collection'][$method]) {
+                switch($method){
+                    case 'GET' :
+                        // Get the collection object and return the items.
+                        $result['data'] = $this->resource->fetchAll()->getCurrentItems();
+                        break;
+                    case 'POST' :
+                        $result['data'] = $this->resource->create($data);
+                        break;
+                    case 'PATCH' :
+                        $result['data'] = $this->resource->patchList($data);
+                        break;
+                    case 'PUT' :
+                        $result['data'] = $this->resource->replaceList($data);
+                        break;
+                    case 'DELETE' :
+                        $result['data'] = $this->resource->deleteList($data);
+                    default :
+                        $result['error'] = $method . ' method is not allowed';
+                }
+            }
+        } catch (Exception $e) {
+            $result['error'] = get_class($e) . ':' . $e->getMessage();
+        }
+        return new JsonResponse($result);
+    }
+}

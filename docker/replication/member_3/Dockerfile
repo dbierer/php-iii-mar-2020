@@ -8,6 +8,12 @@ FROM mongo
 # Copy mongod.conf
 COPY ./member_3.conf /etc/mongod.conf
 
+# Append ./hosts to /etc/hosts in container
+COPY ./hosts /etc/hosts.plus
+RUN \
+    cat /etc/hosts.plus >>/etc/hosts && \
+    rm /etc/hosts.plus
+
 # Installs basic tools
 RUN \
     apt-get update && \
