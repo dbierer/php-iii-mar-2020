@@ -24,6 +24,94 @@ For Fri 13 March
 * Locate test plan for database load testing
 * Specs on our server
 
+## Class Discussion
+* Design Patterns
+  * MVC
+    * Framework expanding original boundaries of MVC: https://lightmvcframework.net/
+  * Strategy
+    * https://github.com/laminas/laminas-view/tree/master/src/Strategy
+    * https://github.com/laminas/laminas-mvc/blob/master/src/View/Http/RouteNotFoundStrategy.php
+  * Decorator: https://github.com/laminas/laminas-validator/blob/master/src/NotEmpty.php
+    * More than just PHP `empty()` function
+    * Also does the following:
+      * Returns TRUE (i.e. "Not Empty") if count of object properties is 0
+      * Returns TRUE if `__toString()` is defined, and returns empty string
+      * It then "manually" does everything that `empty()` does, but step-by-step
+  * Data Mapper
+    * Doctrine ORM: https://www.doctrine-project.org/projects/orm.html
+    * Atlas ORM: http://atlasphp.io/cassini/orm/relationships.html
+  * Pub/Sub
+    * https://github.com/dbierer/php7cookbook/blob/master/source/chapter11/chap_11_pub_sub_simple_example.php
+  * Service Locator
+    * Dependency Injection Overview: https://martinfowler.com/articles/injection.html
+    * Aura DI: http://auraphp.com/framework/2.x/en/di/
+    * PHP DI: http://php-di.org/
+  * Adapter
+    * `Laminas\Db\Adapter\Adapter` : https://docs.laminas.dev/laminas-db/adapter/
+    * `Laminas\Log\Writer\*` : https://docs.laminas.dev/laminas-log/writers/
+    * `Laminas\Cache\Storage\*` : https://docs.laminas.dev/laminas-cache/storage/adapter/
+  * Singleton
+    * https://github.com/dbierer/classic_php_examples/blob/master/oop/oop_singleton_getinstance_example.php
+  * Domain
+    * https://stackoverflow.com/questions/1222392/what-is-domain-driven-design-ddd/1222488#1222488
+    * Free PDF: https://www.infoq.com/minibooks/domain-driven-design-quickly/
+* Example of "pure" Stratigility App: https://github.com/dbierer/strat_post
+  * Here is the live site running this code: https://api.unlikelysource.com/
+* Prototype for custom stream wrapper: https://www.php.net/manual/en/class.streamwrapper.php
+* How to create a PHAR file: https://github.com/phpcl/laminas_tools/blob/master/utils/create_phar.php
+* RE: PHP 7.4: https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters
+* RE: PHP 7.4 changes to Anon Functions and binding `$this`:
+```
+// this usage is deprecated in PHP 7.4
+// See: https://wiki.php.net/rfc/deprecations_php_7_4#unbinding_this_from_non-static_closures
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+class Test { protected $name = 'Testy Tester'; }
+class Fred { protected $name = 'Fred Flintstone'; }
+$anon = new class() extends Test {
+    public function getDump($obj = FALSE)
+    {
+        $func = function () { var_dump($this); };
+        // deprecated:
+        return ($obj !== FALSE) ? $func->bindTo($obj) : $func;
+    }
+};
+echo $anon->getDump()() . "\n";
+echo $anon->getDump(new Fred())() . "\n";
+echo $anon->getDump(NULL)() . "\n";
+```
+* PHP RoadMap: https://wiki.php.net/rfc
+* Discussion on problems with existing serialization: https://wiki.php.net/rfc/custom_object_serialization
+* PHP 7.4 Update: https://www.php.net/manual/en/migration74.new-features.php
+* DateTime
+  * https://github.com/dbierer/classic_php_examples/tree/master/date_time
+* Generators
+```
+namespace src\ModPhpAdvanced\GeneratorDelegation\SubGenYieldFromExp ;
+
+class DimensionDelegator {
+    protected $widths = [10, 30, 50];
+    protected $lengths = [15, 25, 35];
+
+    protected function getWidths() {
+        yield from $this->widths;
+    }
+
+    protected function getLengths() {
+        yield from $this->lengthsl
+    }
+
+    public function getDimensions() {
+        yield from $this->getWidths();
+        yield from $this->getLengths();
+    }
+}
+```
+* Anon Class
+  * Example using anon class with FilterIterator
+  * ???
+
 ## Resources
 * PHP 7.4: https://github.com/phpcl/phpcl_jumpstart_php_7_4/blob/master/ffi_c_function.php
 * OOP Examples: https://github.com/dbierer/classic_php_examples/tree/master/oop
@@ -89,65 +177,8 @@ foreach($obj->getIterator() as $key => $value) {
 composer create-project mezzio/mezzio-skeleton mezzio
 ```
 
-## Class Discussion
-* Example of "pure" Stratigility App: https://github.com/dbierer/strat_post
-  * Here is the live site running this code: https://api.unlikelysource.com/
-* Prototype for custom stream wrapper: https://www.php.net/manual/en/class.streamwrapper.php
-* How to create a PHAR file: https://github.com/phpcl/laminas_tools/blob/master/utils/create_phar.php
-* RE: PHP 7.4: https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters
-* RE: PHP 7.4 changes to Anon Functions and binding `$this`:
-```
-// this usage is deprecated in PHP 7.4
-// See: https://wiki.php.net/rfc/deprecations_php_7_4#unbinding_this_from_non-static_closures
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-class Test { protected $name = 'Testy Tester'; }
-class Fred { protected $name = 'Fred Flintstone'; }
-$anon = new class() extends Test {
-    public function getDump($obj = FALSE)
-    {
-        $func = function () { var_dump($this); };
-        // deprecated:
-        return ($obj !== FALSE) ? $func->bindTo($obj) : $func;
-    }
-};
-echo $anon->getDump()() . "\n";
-echo $anon->getDump(new Fred())() . "\n";
-echo $anon->getDump(NULL)() . "\n";
-```
-* PHP RoadMap: https://wiki.php.net/rfc
-* Discussion on problems with existing serialization: https://wiki.php.net/rfc/custom_object_serialization
-* PHP 7.4 Update: https://www.php.net/manual/en/migration74.new-features.php
-* DateTime
-  * https://github.com/dbierer/classic_php_examples/tree/master/date_time
-* Generators
-```
-namespace src\ModPhpAdvanced\GeneratorDelegation\SubGenYieldFromExp ;
-
-class DimensionDelegator {
-    protected $widths = [10, 30, 50];
-    protected $lengths = [15, 25, 35];
-
-    protected function getWidths() {
-        yield from $this->widths;
-    }
-
-    protected function getLengths() {
-        yield from $this->lengthsl
-    }
-
-    public function getDimensions() {
-        yield from $this->getWidths();
-        yield from $this->getLengths();
-    }
-}
-```
-* Anon Class
-  * Example using anon class with FilterIterator
-  * ???
-
 ## Laminas Migration Errors
+* Problem: getting `PHP Fatal error:  Undefined class constant 'PRE_COMMAND_RUN' in vendor/laminas/laminas-dependency-plugin/src/DependencyRewriterPlugin.php:63`
 ```
 vagrant@php-training:~/php-iii-mar-2020/laminas_api_tools$ composer install
 Cannot create cache directory /home/vagrant/.composer/cache/repo/https---packagist.org/, or directory is not writable. Proceeding without cache
@@ -155,7 +186,7 @@ Cannot create cache directory /home/vagrant/.composer/cache/files/, or directory
 Loading composer repositories with package information
 Updating dependencies (including require-dev)
 Package operations: 95 installs, 0 updates, 0 removals
-  - Installing laminas/laminas-dependency-plugin (1.0.3): Downloading (100%)         
+  - Installing laminas/laminas-dependency-plugin (1.0.3): Downloading (100%)
 PHP Fatal error:  Uncaught Error: Undefined class constant 'PRE_COMMAND_RUN' in /home/vagrant/php-iii-mar-2020/laminas_api_tools/vendor/laminas/laminas-dependency-plugin/src/DependencyRewriterPlugin.php:63
 
 vagrant@php-training:~/php-iii-mar-2020/apigility.migration.laminas$ php --version
@@ -166,3 +197,4 @@ Zend Engine v3.4.0, Copyright (c) Zend Technologies
     with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies
 
 ```
+* Solution: was running outdated version of Composer.  Updated Composer to version 1.10.x.  Migration works OK now.
